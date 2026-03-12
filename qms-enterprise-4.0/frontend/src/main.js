@@ -1,18 +1,21 @@
 import { createRouter } from './app/router.js';
 import { createStore } from './app/store.js';
 import { initImmersiveScene } from './engine3d/scene.js';
-import { fetchAlerts, fetchMachines, issueDemoToken } from './utils/api.js';
+import { fetchAlerts, fetchMachines, issueDemoToken, openRealtime } from './utils/api.js';
+import { mountNav } from './components/layout.js';
 
 const app = document.getElementById('app');
 const store = createStore();
 const router = createRouter(app, store);
 
+mountNav();
 initImmersiveScene(document.body, store);
 router.start();
 store.subscribe(() => router.refresh());
 
 bootstrap().catch((err) => {
   console.warn('bootstrap failed, running in demo-only mode', err.message);
+  store.set({ connectionStatus: 'demo-mode' });
 });
 
 if ('serviceWorker' in navigator) {
@@ -22,14 +25,9 @@ if ('serviceWorker' in navigator) {
 async function bootstrap() {
   const auth = await issueDemoToken();
   const [machines, alerts] = await Promise.all([fetchMachines(auth.accessToken), fetchAlerts(auth.accessToken)]);
-  store.set({ machines, alerts });
+  store.set({ machines, alerts, connectionStatus: 'live-connected' });
 
-  const ws = new WebSocket('ws://localhost:8080/ws');
-  ws.onmessage = (msg) => {
-    const payload = JSON.parse(msg.data);
-    if (payload.type !== 'event' || !payload.event?.payload) return;
-
-    const event = payload.event.payload;
+  openRealtime((event) => {
     if (event.type === 'machine.updated') {
       const next = store.getState().machines.map((m) => (m.id === event.machine.id ? event.machine : m));
       store.set({ machines: next });
@@ -38,5 +36,5 @@ async function bootstrap() {
     if (event.type === 'spc.alert') {
       store.set({ alerts: [event.alert, ...store.getState().alerts] });
     }
-  };
+  });
 }

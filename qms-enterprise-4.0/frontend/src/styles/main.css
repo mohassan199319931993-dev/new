@@ -57,3 +57,28 @@ body {
 .machine-card p { margin: .2rem 0 .5rem 0; opacity: .75; }
 .machine-metrics { display: grid; gap: .3rem; font-size: .9rem; }
 .alerts { margin: 0; padding-left: 1rem; display: grid; gap: .35rem; }
+
+.top-nav {
+  position: sticky;
+  top: 0;
+  z-index: 3;
+  display: flex;
+  flex-wrap: wrap;
+  gap: .45rem;
+  padding: .8rem 1rem;
+  backdrop-filter: blur(10px);
+  background: rgba(5, 12, 24, 0.72);
+  border-bottom: 1px solid var(--border);
+}
+.top-nav a {
+  text-decoration: none;
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: .32rem .75rem;
+  font-size: .92rem;
+}
+.top-nav a.active {
+  background: rgba(102, 216, 255, 0.22);
+  color: #fff;
+}

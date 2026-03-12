@@ -1,4 +1,4 @@
-const API_BASE = 'http://localhost:8080/api';
+const API_BASE = window.__QMS_API_BASE__ || 'http://localhost:8080/api';
 
 export async function issueDemoToken() {
   const response = await fetch(`${API_BASE}/auth/token`, {
@@ -26,4 +26,15 @@ export async function fetchAlerts(accessToken) {
   if (!response.ok) throw new Error('alerts fetch failed');
   const payload = await response.json();
   return payload.items || [];
+}
+
+export function openRealtime(onEvent) {
+  const wsBase = window.__QMS_WS_BASE__ || 'ws://localhost:8080/ws';
+  const ws = new WebSocket(wsBase);
+  ws.onmessage = (msg) => {
+    const payload = JSON.parse(msg.data);
+    if (payload.type !== 'event' || !payload.event?.payload) return;
+    onEvent(payload.event.payload);
+  };
+  return ws;
 }

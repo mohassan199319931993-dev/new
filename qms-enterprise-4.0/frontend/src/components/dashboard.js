@@ -14,6 +14,7 @@ export function renderDashboard(root, state) {
           <span>${state.user.role}</span>
           <span>${state.user.plant}</span>
           <span>${state.performanceMode}</span>
+          <span>${state.connectionStatus}</span>
         </div>
       </header>
 
@@ -41,13 +42,6 @@ export function renderDashboard(root, state) {
             )
             .join('')}
         </div>
-      </section>
-
-      <section class="glass panel">
-        <h2>SPC Alerts</h2>
-        <ul class="alerts">
-          ${state.alerts.slice(0, 5).map((a) => `<li><strong>${a.chart}</strong> ${a.machineId}: ${a.message}</li>`).join('') || '<li>No alerts</li>'}
-        </ul>
       </section>
     </main>
   `;

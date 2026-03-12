@@ -63,3 +63,23 @@ To avoid GitHub Pages "404 File not found" errors regardless of publish source:
 - `.nojekyll` is included at repository root
 
 If Pages is configured to publish from `/docs`, keep that folder in sync.
+
+
+## تشغيل كل الصفحات (Full Pages)
+1. شغّل الباك-إند والفرونت-إند معًا:
+   ```bash
+   cd qms-enterprise-4.0
+   docker compose up --build
+   ```
+2. افتح الواجهة على `http://localhost:5173`.
+3. التنقل بين الصفحات من الشريط العلوي:
+   - Dashboard
+   - Quality
+   - SPC
+   - IoT
+   - AI
+   - Builder
+   - Reports
+   - Admin
+
+> لو الباك-إند غير متاح، الواجهة تعمل تلقائيًا بـ **demo-mode** ببيانات seed حتى تقدر تستعرض كل الصفحات.
