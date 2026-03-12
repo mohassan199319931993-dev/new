@@ -55,3 +55,11 @@ This repository provides a production-grade foundation and reference implementat
 
 ## GitHub Pages
 If GitHub Pages is enabled for this repository root, `index.html` and `404.html` are provided at the repository top level to prevent the default 404 error page and route users to a valid entry point.
+
+## GitHub Pages 404 Fix
+To avoid GitHub Pages "404 File not found" errors regardless of publish source:
+- repository root includes `index.html` and `404.html`
+- `/docs` includes `docs/index.html` and `docs/404.html`
+- `.nojekyll` is included at repository root
+
+If Pages is configured to publish from `/docs`, keep that folder in sync.
