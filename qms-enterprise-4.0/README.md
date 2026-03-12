@@ -52,3 +52,6 @@ Production-oriented enterprise scaffold for a Quality 4.0 SaaS platform with imm
 
 ## Delivery Scope
 This repository provides a production-grade foundation and reference implementation for core platform concerns. Domain modules include complete starter boundaries and extension points for deep enterprise customization.
+
+## GitHub Pages
+If GitHub Pages is enabled for this repository root, `index.html` and `404.html` are provided at the repository top level to prevent the default 404 error page and route users to a valid entry point.

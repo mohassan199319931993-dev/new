@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>QMS Enterprise 4.0</title>
+    <style>
+      :root { --bg:#060d1b; --card:#10233d88; --line:#5eb8ff55; --txt:#eaf4ff; --acc:#6cd8ff; }
+      * { box-sizing:border-box; }
+      body { margin:0; min-height:100vh; color:var(--txt); font-family:Inter,Segoe UI,Arial,sans-serif;
+        background: radial-gradient(circle at 15% 20%, #16345f, var(--bg)); display:grid; place-items:center; padding:24px; }
+      .card { width:min(980px,100%); border:1px solid var(--line); border-radius:18px; padding:28px;
+        background:var(--card); backdrop-filter: blur(10px); box-shadow:0 15px 45px #0007; }
+      h1 { margin:0 0 8px; font-size:clamp(1.8rem,3vw,2.7rem); }
+      p { opacity:.9; margin:.4rem 0; }
+      .grid { margin-top:18px; display:grid; grid-template-columns:repeat(auto-fit,minmax(170px,1fr)); gap:10px; }
+      .pill { border:1px solid var(--line); border-radius:999px; padding:.35rem .75rem; display:inline-block; margin:.35rem .35rem 0 0; }
+      .module { border:1px solid var(--line); border-radius:12px; padding:.7rem .8rem; background:#08182db0; }
+      code { color:var(--acc); }
+    </style>
+  </head>
+  <body>
+    <main class="card">
+      <h1>QMS Enterprise 4.0</h1>
+      <p>Immersive Industrial Operating System</p>
+      <div>
+        <span class="pill">GitHub Pages Ready Entry</span>
+        <span class="pill">No more 404 on root URL</span>
+      </div>
+      <p>This repository is a source project. Run the full platform locally with <code>docker compose up --build</code> inside <code>qms-enterprise-4.0/</code>.</p>
+      <div class="grid">
+        <article class="module">Quality Management System</article>
+        <article class="module">SPC + Alerts + Realtime</article>
+        <article class="module">IoT Ingestion + Digital Twin</article>
+        <article class="module">No-Code / AI / Reporting</article>
+      </div>
+    </main>
+  </body>
+</html>
