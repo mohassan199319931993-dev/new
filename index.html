@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>QMS Enterprise 4.0 | Immersive Industrial Operating System</title>
+    <style>
+      :root { --bg:#060d1b; --card:#10233d99; --line:#5eb8ff55; --txt:#eaf4ff; --acc:#6cd8ff; }
+      * { box-sizing:border-box; }
+      body {
+        margin:0; min-height:100vh; color:var(--txt); font-family:Inter,Segoe UI,Arial,sans-serif;
+        background: radial-gradient(circle at 15% 20%, #16345f, var(--bg)); display:grid; place-items:center; padding:24px;
+      }
+      .card {
+        width:min(1080px,100%); border:1px solid var(--line); border-radius:18px; padding:30px;
+        background:var(--card); backdrop-filter: blur(10px); box-shadow:0 15px 45px #0007;
+      }
+      h1 { margin:0; font-size:clamp(2rem,3.5vw,3rem); }
+      h2 { margin:.35rem 0 1rem; font-weight:500; opacity:.9; }
+      .badges { display:flex; gap:.6rem; flex-wrap:wrap; margin:1rem 0; }
+      .badge { border:1px solid var(--line); border-radius:999px; padding:.35rem .75rem; }
+      .desc { margin:.75rem 0 1.1rem; line-height:1.6; }
+      .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(190px,1fr)); gap:12px; margin-top:10px; }
+      .module { border:1px solid var(--line); border-radius:12px; padding:.8rem .9rem; background:#08182db0; }
+      code { color:var(--acc); }
+      a { color:var(--acc); }
+    </style>
+  </head>
+  <body>
+    <main class="card">
+      <h1>QMS Enterprise 4.0</h1>
+      <h2>Immersive Industrial Operating System</h2>
+
+      <div class="badges">
+        <span class="badge">GitHub Pages Ready Entry</span>
+        <span class="badge">No more 404 on root URL</span>
+      </div>
+
+      <p class="desc">
+        This repository is a source project. Run the full platform locally with
+        <code>docker compose up --build</code> inside <code>qms-enterprise-4.0/</code>.
+      </p>
+
+      <section class="grid" aria-label="Platform modules overview">
+        <article class="module">Quality Management System</article>
+        <article class="module">SPC + Alerts + Realtime</article>
+        <article class="module">IoT Ingestion + Digital Twin</article>
+        <article class="module">No-Code / AI / Reporting</article>
+      </section>
+
+      <p class="desc">If Pages is configured for <code>/docs</code>, use <a href="./docs/">docs entry</a>.</p>
+    </main>
+  </body>
+</html>

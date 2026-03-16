@@ -1,0 +1,9 @@
+{
+  "name": "qms-enterprise-frontend",
+  "version": "4.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "node server.js",
+    "start": "node server.js"
+  }
+}
